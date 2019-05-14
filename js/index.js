@@ -6,8 +6,12 @@ const header = document.querySelector(".main-navigation");
 const footer = document.querySelector(".footer");
 const body = document.body;
 const destination = document.querySelectorAll(".destination");
+const textContent = document.querySelectorAll(".text-content");
+const contentDestination = document.querySelectorAll(".content-destination");
 const images = document.querySelectorAll("img");
 const h2 = document.querySelectorAll("h2");
+const innerDiv = document.querySelector(".inside-div");
+const outerDiv = document.querySelector(".outside-div");
 
 const dangerMessage = document.createElement("div");
 dangerMessage.style.width = "100vw";
@@ -22,6 +26,11 @@ navLinks.forEach(el => {
   el.addEventListener("mouseenter", navLinksHover);
   el.addEventListener("mouseleave", navLinksNoHover);
 });
+
+navLinks[0].addEventListener("click", event => event.preventDefault());
+navLinks[1].addEventListener("click", event => event.preventDefault());
+navLinks[2].addEventListener("click", event => event.preventDefault());
+navLinks[3].addEventListener("click", event => event.preventDefault());
 
 function navLinksHover(event) {
   event.target.style.color = "steelblue";
@@ -46,6 +55,16 @@ dangerBtn[0].addEventListener("click", event => {
 });
 
 destination.forEach(ele => {
+  ele.addEventListener("mouseenter", destinationHover);
+  ele.addEventListener("mouseleave", destinationNoHover);
+});
+
+textContent.forEach(ele => {
+  ele.addEventListener("mouseenter", destinationHover);
+  ele.addEventListener("mouseleave", destinationNoHover);
+});
+
+contentDestination.forEach(ele => {
   ele.addEventListener("mouseenter", destinationHover);
   ele.addEventListener("mouseleave", destinationNoHover);
 });
@@ -84,6 +103,20 @@ function h2DblClick(event) {
 body.addEventListener("mousedown", mouseMoveFunction);
 
 function mouseMoveFunction(event) {
+  if (event.target === body) {
+    event.target.classList.toggle("bodyClass");
+  }
+}
+
+outerDiv.addEventListener("click", divEvent);
+innerDiv.addEventListener("click", divEvent2);
+
+function divEvent(event) {
   event.stopPropagation();
-  event.target.classList.toggle("bodyClass");
+  alert("PARENT DIV");
+}
+
+function divEvent2(event) {
+  event.stopPropagation();
+  alert("CHILD DIV");
 }

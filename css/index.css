@@ -393,3 +393,15 @@ img {
   color: red;
   background: teal;
 }
+.home .outside-div {
+  width: 100%;
+  height: 80px;
+  background-color: orange;
+}
+.home .inside-div {
+  width: 60%;
+  height: 40px;
+  background-color: yellowgreen;
+  display: block;
+  margin: auto;
+}
