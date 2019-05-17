@@ -34,3 +34,11 @@ body {
 .block--gray {
   background-color: gray;
 }
+
+.send-to-top {
+  order: -1;
+}
+
+.send-down {
+  order: 0;
+}
